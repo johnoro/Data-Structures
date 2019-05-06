@@ -100,6 +100,7 @@ class DoublyLinkedList:
     if node is self.tail:
       self.tail = node.prev
     self.head.insert_before(node.value)
+    node.delete()
     self.head = self.head.prev
     return self
 
@@ -112,6 +113,7 @@ class DoublyLinkedList:
     if node is self.head:
       self.head = node.next
     self.tail.insert_after(node.value)
+    node.delete()
     self.tail = self.tail.next
     return self
 
