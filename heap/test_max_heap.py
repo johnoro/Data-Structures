@@ -14,7 +14,7 @@ class HeapTests(unittest.TestCase):
     self.heap.insert(1)
     self.heap.insert(9)
     self.heap.insert(9)
-    self.heap.insert(5) 
+    self.heap.insert(5)
     self.assertEqual(self.heap.storage, [10, 9, 9, 6, 1, 8, 9, 5])
 
   def test_get_max_works(self):
@@ -42,7 +42,9 @@ class HeapTests(unittest.TestCase):
     self.assertEqual(self.heap.get_max(), 9)
     self.heap.delete()
     self.assertEqual(self.heap.get_max(), 9)
+    print(self.heap.storage)
     self.heap.delete()
+    print(self.heap.storage)
     self.assertEqual(self.heap.get_max(), 9)
     self.heap.delete()
     self.assertEqual(self.heap.get_max(), 8)
