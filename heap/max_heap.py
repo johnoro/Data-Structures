@@ -2,7 +2,6 @@ class Heap:
   def __init__(self):
     self.storage = []
 
-
   def insert(self, value):
     index = len(self.storage)
     self.storage.append(value)
