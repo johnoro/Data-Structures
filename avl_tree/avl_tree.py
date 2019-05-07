@@ -27,7 +27,9 @@ class AVLTree:
     self.update_balance()
     
     if self.node != None: 
-      print ('-' * level * 2, pref, self.node.key, "[" + str(self.height) + ":" + str(self.balance) + "]", 'L' if self.is_leaf() else ' '    )
+      print ('-' * level * 2, pref, self.node.key, 
+        f'[{self.height}:{self.balance}]', 
+        'L' if self.is_leaf() else ' ')
       if self.node.left != None: 
         self.node.left.display(level + 1, '<')
       if self.node.right != None:
@@ -51,7 +53,7 @@ class AVLTree:
   node the parent and making the old parent the left child
   of the new parent. 
   """
-  def _left_rotate(self):
+  def left_rotate(self):
     pass
 
   """
@@ -59,7 +61,7 @@ class AVLTree:
   node the parent and making the old parent the right child
   of the new parent. 
   """
-  def _right_rotate(self):
+  def right_rotate(self):
     pass
 
   """
