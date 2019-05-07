@@ -5,6 +5,9 @@ class Queue:
     # use to store queue elements?
     self.storage = []
 
+  def __len__(self):
+    return len(self.storage)
+
   def enqueue(self, item):
     self.storage.append(item)
   
@@ -15,4 +18,4 @@ class Queue:
       return None
 
   def len(self):
-    return len(self.storage)
+    return len(self)
