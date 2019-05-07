@@ -37,12 +37,17 @@ class BinarySearchTree:
 
 
   def get_max(self):
-    n = self.right
-    if n is None:
+    node = self.right
+    if node is None:
       return self.value
-    while n.right is not None:
-      n = n.right
-    return n.value
+    while node.right is not None:
+      node = node.right
+    return node.value
+
 
   def for_each(self, cb):
-    pass
+    cb(self.value)
+    if self.left is not None:
+      self.left.for_each(cb)
+    if self.right is not None:
+      self.right.for_each(cb)
