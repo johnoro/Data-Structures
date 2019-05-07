@@ -3,8 +3,12 @@ class Heap:
     self.storage = []
     self.comparator = comparator
   
+  # used to make get_size obscure
+  def __len__(self):
+    return len(self.storage)
+
   def insert(self, value):
-    index = len(self.storage)
+    index = len(self)
     self.storage.append(value)
     self._bubble_up(index)
 
@@ -19,7 +23,7 @@ class Heap:
     return self.storage[0]
 
   def get_size(self):
-    return len(self.storage)
+    return len(self)
 
   def _bubble_up(self, index):
     if index > 0:
@@ -30,9 +34,9 @@ class Heap:
 
   def _sift_down(self, index):
     left, right = self.left(index), self.right(index)
-    if right < len(self.storage):
+    if right < len(self):
       max_child_index = left if self.compare(left, right) else right
-    elif left < len(self.storage):
+    elif left < len(self):
       max_child_index = left
     else:
       return
