@@ -32,19 +32,19 @@ Linear based on the size of the BST, `O(k)`.
 
 1. What is the runtime complexity of `_bubble_up`?
 
-Linear based on the size of the heap, `O(k)`.
+Logarithmic based on the size of the heap, `O(log(k))`.
 
 2. What is the runtime complexity of `_sift_down`?
 
-Linear based on the size of the heap, `O(k)`.
+Logarithmic based on the size of the heap, `O(log(k))`.
 
 3. What is the runtime complexity of `insert`?
 
-Linear based on the size of the heap, `O(k)`.
+Logarithmic based on the size of the heap, `O(log(k))`.
 
 4. What is the runtime complexity of `delete`?
 
-Linear based on the size of the heap, `O(k)`.
+Logarithmic based on the size of the heap, `O(log(k))`.
 
 5. What is the runtime complexity of `get_max`?
 
