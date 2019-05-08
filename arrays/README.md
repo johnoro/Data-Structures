@@ -19,6 +19,44 @@ Create an array that stores the integers: 2, 3, 4, 5
 3. Receive an address to your 16-bytes of reserved memory
 4. Write the values of 2, 3, 4 and 5 into the array
 
+```c
+// I imagine this one would be something like this:
+typedef struct Array {
+  int cap;
+  int len;
+  int *nums;
+} Array;
+
+Array *array(int cap) {
+  Array *arr = malloc(sizeof(Array));
+  arr->cap = cap;
+  arr->len = 0;
+  arr->nums = malloc(sizeof(int) * cap);
+  return arr;
+}
+
+void push(Array *arr, int num) {
+  if (arr->len < arr->cap) {
+    arr->nums[arr->len++] = num;
+  }
+}
+
+int main(void) {
+  Array *arr = array(4);
+  for (int n = 2; n <= 5; n++) {
+    push(arr, n);
+  }
+  
+  int i = 0;
+  while (i < arr->len - 1) {
+    printf("%d, ", arr->nums[i++]);
+  }
+  printf("%d", arr->nums[i]);
+
+  return 0;
+}
+```
+
 A byte consists of 8-bits and a bit is either a 1 or a 0 so the resulting memory would look something like this:
 
 25600    25601    25602    25603
