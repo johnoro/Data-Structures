@@ -8,6 +8,7 @@ class Node:
     self.left = None
     self.right = None
 
+
 """
 A tree class to keep track of things like the
 balance factor and the rebalancing logic
@@ -26,7 +27,6 @@ class AVLTree:
   def display(self, level=0, pref=''):
     self.update_height()  # Update height before balancing
     self.update_balance()
-    
     if self.node != None: 
       print ('-' * level * 2, pref, self.node.key, 
         f'[{self.height}:{self.balance}]', 
