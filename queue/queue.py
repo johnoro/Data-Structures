@@ -1,21 +1,19 @@
+from dll import DoublyLinkedList
+
 class Queue:
   def __init__(self):
     self.size = 0
-    # what data structure should we
-    # use to store queue elements?
-    self.storage = []
+    # using DLL for constant time enqueue and dequeue
+    self.dll = DoublyLinkedList()
 
   def __len__(self):
-    return len(self.storage)
+    return len(self.dll)
 
   def enqueue(self, item):
-    self.storage.append(item)
+    self.dll.add_to_tail(item)
   
   def dequeue(self):
-    try:
-      return self.storage.pop(0)
-    except IndexError:
-      return None
+    return self.dll.remove_from_head()
 
   def len(self):
     return len(self)

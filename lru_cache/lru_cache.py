@@ -1,6 +1,10 @@
+from dll import DoublyLinkedList
+
 class LRUCache:
   def __init__(self, limit=10):
-    pass
+    self.limit = limit
+    self.length = 0
+    self.dll = DoublyLinkedList()
 
   """
   Retrieves the value associated with the given key. Also
@@ -10,7 +14,11 @@ class LRUCache:
   key-value pair doesn't exist in the cache. 
   """
   def get(self, key):
-    pass
+    found = self.dll.search(key)
+    if found is None:
+      return None
+    self.dll.move_to_front(found)
+    return found.value[key]
 
   """
   Adds the given key-value pair to the cache. The newly-
@@ -20,7 +28,16 @@ class LRUCache:
   cache needs to be removed to make room. Additionally, in the
   case that the key already exists in the cache, we simply 
   want to overwrite the old value associated with the key with
-  the newly-specified value. 
+  the newly-specified value.
   """
   def set(self, key, value):
-    pass
+    found = self.dll.search(key)
+    if found is not None:
+      found.value[key] = value
+      self.dll.move_to_front(found)
+    else:
+      if self.length == self.limit:
+        self.dll.remove_from_tail()
+      else:
+        self.length += 1
+      self.dll.add_to_head({key: value})
